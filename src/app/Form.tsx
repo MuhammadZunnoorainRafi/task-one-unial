@@ -11,9 +11,9 @@ function Form() {
 
   useEffect(() => {
     if (state.success) {
-        ref.current?.reset()
+      ref.current?.reset();
     }
-  });
+  }, [state]);
 
   return (
     <div className="p-5 rounded-md border border-slate-300">

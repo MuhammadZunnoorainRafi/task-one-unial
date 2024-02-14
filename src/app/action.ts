@@ -17,7 +17,7 @@ type stateT = {
 export const createDataAction = async (
   prevState: stateT,
   formData: FormData
-) => {
+): Promise<stateT> => {
   const validation = formSchema.safeParse(Object.fromEntries(formData));
   if (!validation.success) {
     return {
