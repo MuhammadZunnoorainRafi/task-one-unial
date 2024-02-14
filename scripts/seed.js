@@ -11,7 +11,6 @@ async function seedData(client) {
         country TEXT NOT NULL
       );
     `;
-    console.log(`Created table`);
 
     return {
       createTable,

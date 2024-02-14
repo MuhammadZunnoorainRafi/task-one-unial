@@ -19,7 +19,6 @@ export const createDataAction = async (
   formData: FormData
 ) => {
   const validation = formSchema.safeParse(Object.fromEntries(formData));
-  console.log(validation);
   if (!validation.success) {
     return {
       errors: validation.error.flatten().fieldErrors,
