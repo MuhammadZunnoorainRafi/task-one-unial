@@ -3,10 +3,10 @@
 import { useFormState, useFormStatus } from 'react-dom';
 import { createDataAction } from './action';
 import { useEffect, useRef } from 'react';
+import SubmitButton from './SubmitButton';
 
 function Form() {
   const [state, action] = useFormState(createDataAction, { errors: {} });
-  const { pending } = useFormStatus();
   const ref = useRef<HTMLFormElement | null>(null);
 
   useEffect(() => {
@@ -34,13 +34,7 @@ function Form() {
           name="country"
         />
         <p className="text-sm text-red-500">{state.errors?.country}</p>
-        <button
-          disabled={pending}
-          type="submit"
-          className="px-5 disabled:opacity-60 py-1 rounded-md text-white bg-blue-500 hover:opacity-80"
-        >
-          {pending ? 'Submitting...' : 'Submit'}
-        </button>
+        <SubmitButton />
       </form>
     </div>
   );
